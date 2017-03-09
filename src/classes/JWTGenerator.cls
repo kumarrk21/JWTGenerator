@@ -1,8 +1,9 @@
 public with sharing class JWTGenerator {
 	
 	@AuraEnabled
-	public static String getAccessToken(String consumerKey){
+	public static String getAccessToken(String consumerKey, String certName){
 		System.debug('consumerKey is :' + consumerKey);
+		System.debug('certName is :' + certName);
 		String accessToken;
 		String userName = UserInfo.getUserName();
 		String baseUrl = 'https://login.salesforce.com';
@@ -29,7 +30,7 @@ public with sharing class JWTGenerator {
 		System.debug('Validity Length is ' + jwt.getValidityLength());
 		System.debug('JSON payload is ' + jwt.toJSONString());
 
-		Auth.JWS jws = new Auth.JWS(jwt, 'JWT_Token_Cert');
+		Auth.JWS jws = new Auth.JWS(jwt, certName);
 		String token = jws.getCompactSerialization();
 		System.debug('Compact Serialization is ' + token);
 		String tokenEndPoint = baseUrl + '/services/oauth2/token';

@@ -1,7 +1,9 @@
 ({
 	getToken : function(cmp, event, helper) {
 		var apexMethod = cmp.get('c.getAccessToken');
-		apexMethod.setParams({consumerKey:cmp.get('v.ckey')});
+
+		apexMethod.setParams({ consumerKey:cmp.get('v.ckey'),
+                               certName:cmp.get('v.certName')});
 		apexMethod.setCallback(this,function(response){
             var state = response.getState();
             if(state == 'SUCCESS'){
