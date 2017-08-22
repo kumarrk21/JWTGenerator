@@ -41,4 +41,6 @@
         urlEvent.fire();
         cmp.set('v.showLaunchButton', true)
     }
+
+
 })

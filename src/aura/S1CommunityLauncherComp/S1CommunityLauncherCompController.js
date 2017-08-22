@@ -1,6 +1,6 @@
 ({
 	doInit : function(cmp, evt, helper) {
-		if(window.location.pathname!='/visualEditor/appBuilder.app'){
+		if(window.location.pathname!='/flexipageEditor/surface.app'){
 			helper.getToken(cmp,evt)
 		}
 	},
