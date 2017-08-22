@@ -1,20 +1,20 @@
 public with sharing class JWTGenerator {
-	transient String loginUrl = 'https://login.salesforce.com';
+	//transient String loginUrl = 'https://login.salesforce.com';
 
-	public String getJWTToken(String consumerKey, String certName, Integer tokenValidity, Map <String,Object> claims){
-    	Auth.JWS jws = getJWTTokenInternal(consumerKey,certName,tokenValidity,claims);
+	public String getJWTToken(String loginUrl, String consumerKey, String certName, Integer tokenValidity, Map <String,Object> claims){
+    	Auth.JWS jws = getJWTTokenInternal(loginUrl, consumerKey,certName,tokenValidity,claims);
     	return jws.getCompactSerialization();
     }
 
-    public String getAccessToken(String consumerKey, String certName, Integer tokenValidity, Map <String,Object> claims) {
-        Auth.JWS jws = getJWTTokenInternal(consumerKey,certName,tokenValidity,claims);
+    public String getAccessToken(String loginUrl, String consumerKey, String certName, Integer tokenValidity, Map <String,Object> claims) {
+        Auth.JWS jws = getJWTTokenInternal(loginUrl, consumerKey,certName,tokenValidity,claims);
         Auth.JWTBearerTokenExchange bearer = new Auth.JWTBearerTokenExchange(loginUrl + '/services/oauth2/token', jws);
         return bearer.getAccessToken();
     }
 
 
-    private Auth.JWS getJWTTokenInternal(String consumerKey, String certName, Integer tokenValidity, Map < String, Object > claims) {
-    	setLoginUrl();
+    private Auth.JWS getJWTTokenInternal(String loginUrl, String consumerKey, String certName, Integer tokenValidity, Map < String, Object > claims) {
+    	//setLoginUrl();
         Auth.JWT jwt = new Auth.JWT();
         jwt.setSub(UserInfo.getUserName());
         jwt.setAud(loginUrl);
@@ -24,6 +24,7 @@ public with sharing class JWTGenerator {
         return new Auth.JWS(jwt, certName);
     }
 
+    /*
 	private void setLoginUrl(){
 		List < Organization > org = [Select Id, IsSandbox FROM Organization];
         if (org.size() > 0) {
@@ -32,5 +33,6 @@ public with sharing class JWTGenerator {
             }
         }
 	}
+    */
 
 }

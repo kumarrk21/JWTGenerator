@@ -2,7 +2,8 @@
 	callApex : function(cmp,evt,methodName) {
 		var apexMethod = cmp.get(methodName);
 		
-		apexMethod.setParams({ consumerKey:cmp.get('v.ckey'),
+		apexMethod.setParams({ loginUrl:cmp.get('v.loginUrl'),
+                               consumerKey:cmp.get('v.ckey'),
                                certName:cmp.get('v.certName'),
                                tokenValidity:cmp.get('v.tokenValidity')});
 		apexMethod.setCallback(this,function(response){

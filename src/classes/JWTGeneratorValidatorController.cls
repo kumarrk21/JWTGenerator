@@ -1,15 +1,15 @@
 public with sharing class JWTGeneratorValidatorController {
 
 	@AuraEnabled
-	public static String getJWTToken(String consumerKey, String certName, Integer tokenValidity){
+	public static String getJWTToken(String loginUrl, String consumerKey, String certName, Integer tokenValidity){
     	JWTGenerator jwGen = new JWTGenerator();
-    	return jwGen.getJWTToken(consumerKey,certName,Integer.valueOf(tokenValidity),getClaims());
+    	return jwGen.getJWTToken(loginUrl, consumerKey,certName,Integer.valueOf(tokenValidity),getClaims());
     }
 
     @AuraEnabled
-    public static String getAccessToken(String consumerKey, String certName, Integer tokenValidity) {
+    public static String getAccessToken(String loginUrl, String consumerKey, String certName, Integer tokenValidity) {
     	JWTGenerator jwGen = new JWTGenerator();
-    	return jwGen.getAccessToken(consumerKey,certName,Integer.valueOf(tokenValidity),getClaims());
+    	return jwGen.getAccessToken(loginUrl, consumerKey,certName,Integer.valueOf(tokenValidity),getClaims());
 
     }
 

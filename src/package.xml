@@ -8,11 +8,12 @@
 	<types>
 		<members>JWTGeneratorApp</members>
 		<members>JWTGeneratorComponent</members>
+		<members>S1CommunityLauncherComp</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
 		<members>slds214</members>
 		<name>StaticResource</name>
 	</types>
-	<version>34.0</version>
+	<version>40.0</version>
 </Package>
