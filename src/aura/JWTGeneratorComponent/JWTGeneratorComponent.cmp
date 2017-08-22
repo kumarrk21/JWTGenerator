@@ -1,5 +1,5 @@
 <aura:component access="GLOBAL" implements="flexipage:availableForAllPageTypes,force:appHostable" controller="JWTGeneratorValidatorController" >
-	 <ltng:require styles="/resource/slds214/assets/styles/salesforce-lightning-design-system.css" />
+	 <!--<ltng:require styles="/resource/slds214/assets/styles/salesforce-lightning-design-system.css" />-->
 	<aura:attribute name="loginUrl" type="String" default="https://login.salesforce.com"/>
 	<aura:attribute name="token" type="String"/>
 	<aura:attribute name="ckey" type="String" default=""/>

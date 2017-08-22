@@ -1,7 +1,0 @@
-<design:component >
-	<design:attribute name="appConsumerKey" label="Consumer Key" description="Consumer Key of the connected app used to get the JWT token for community"/>
-	<design:attribute name="certName" label="Cert Name" description="API Name of the certificate used for digitally signing the connected app and the JWT token request"/>
-	<design:attribute name="JWTValidity" label="JWT Validity" description="Validity of JWT in secs"/>
-    <design:attribute name="communityURL" label="Community URL" description="URL for the community"/>
-    <design:attribute name="commLandingPage" label="Comm Landing Page" description="URL for the community landing page"/>
-</design:component>
